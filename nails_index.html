@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ana Clara Carvalho">
+    <title>nails.by_grazi</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #fff0f5;
+            color: #333;
+        }
+        header {
+            color: white;
+            background-color: #d63384;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        footer {
+            color: white;
+            background-color: #d63384;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 1200px;
+            margin: 20px auto;
+            border: 2px solid #d63384;
+        }
+        section {
+            text-align: left;
+            border: 2px solid #ccc;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #ffe4e1;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        section:hover {
+            background-color: #ffc1cc;
+            transform: scale(1.02);
+        }
+        h1, h2 {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+        }
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #d63384;
+            border-bottom: 2px solid #d63384;
+            padding-bottom: 5px;
+        }
+        p {
+            line-height: 1.8;
+            margin-bottom: 10px;
+            font-family: 'Verdana', sans-serif;
+        }
+        a {
+            color: #d63384;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #c2185b;
+        }
+        .galeria-fotos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .galeria-fotos img {
+            width: 120px;
+            height: 120px;
+            border-radius: 100%;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .galeria-fotos img:hover {
+            transform: scale(1.05);
+        }
+        .servico-imagem {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .servico-imagem div {
+            margin: 10px;
+            text-align: center;
+            max-width: 150px;
+        }
+        .servico-imagem img {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+        }
+        .servico-imagem p {
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #ff1493;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .whatsapp-button:hover {
+            background-color: #e01180;
+            transform: scale(1.05);
+        }
+        .whatsapp-button img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        @media (min-width: 768px) {
+            main {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            header {
+                padding: 30px;
+            }
+        }
+    </style>
+    <script>
+        function enviarWhatsApp() {
+            const nome = document.getElementById("nome").value;
+            const telefone = document.getElementById("telefone").value;
+            const disponibilidade = document.getElementById("disponibilidade").value;
+            const servico = document.getElementById("servico").value;
+            const mensagem = `Olá! Gostaria de agendar um horário. Nome: ${nome}, Telefone: ${telefone}, Disponibilidade: ${disponibilidade}, Serviço: ${servico}`;
+
+            const url = `https://api.whatsapp.com/send?phone=5512997031637&text=${encodeURIComponent(mensagem)}`;
+            window.open(url, "_blank");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>nails.by_grazi</h1>
+        <img src="images/nailsdesigner.jpeg" alt="Imagem de unhas">
+    </header>
+    <main>
+        <section>
+            <!-- Galeria de fotos -->
+            <div class="galeria-fotos">
+                <img src="images/unha1.jpeg" alt="Unha 1">
+                <img src="images/unha2.jpeg" alt="Unha 2">
+                <img src="images/unha3.jpeg" alt="Unha 3">
+                <img src="images/unha4.jpeg" alt="Unha 4">
+            </div>
+            <h2>Marque Seu Horário</h2>
+            <form onsubmit="enviarWhatsApp(); return false;">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+
+                <label for="disponibilidade">Disponibilidade:</label>
+                <input type="datetime-local" id="disponibilidade" name="disponibilidade" required>
+
+                <label for="servico">Escolha o Serviço:</label>
+                <select id="servico" name="servico" required>
+                    <option value="Mão - R$25,00">Mão - R$25,00</option>
+                    <option value="Pé - R$15,00">Pé - R$15,00</option>
+                    <option value="Mão e Pé - R$45,00">Mão e Pé - R$45,00</option>
+                    <option value="Soft Gel - R$35,00">Soft Gel - R$35,00</option>
+                </select>
+
+                <div class="servico-imagem">
+                    <div>
+                        <img src="images/unhadamao.jpg" alt="Mão">
+                        <p>Mão</p>
+                        <p>R$25,00</p>
+                    </div>
+                    <div>
+                        <img src="images/unhadope.jpg" alt="Pé">
+                        <p>Pé</p>
+                        <p>R$15,00</p>
+                    </div>
+                    <div>
+                        <img src="images/péemao.jpg" alt="Mão e Pé">
+                        <p>Mão e Pé</p>
+                        <p>R$45,00</p>
+                    </div>
+                    <div>
+                        <img src="images/soft gel.jpg" alt="Soft Gel">
+                        <p>Soft Gel</p>
+                        <p>R$60,00</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="whatsapp-button">
+                    <img src="images/wpp.png" alt="WhatsApp">
+                    Agendar pelo WhatsApp
+                </button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 NAIL DESIGNER| GRAZIELA CARVALHO - TODOS OS DIREITOS RESERVADOS.</p>
+    </footer>
+</body>
+</html>
